@@ -1,5 +1,5 @@
 import unittest
-from should_dsl import *
+from should_dsl import should
 
 from OOMathParser import *
 
