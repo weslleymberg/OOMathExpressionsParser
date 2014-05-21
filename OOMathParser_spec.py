@@ -102,3 +102,11 @@ class TestParse(unittest.TestCase):
     def test_it_should_evaluate_1_plus_1_equals_to_2(self):
         expression = Expression("1 + 1")
         expression.evaluate() |should| equal_to(2)
+
+    def test_it_should_evaluate_2_times_2_equals_to_4(self):
+        expression = Expression("2*3")
+        expression.evaluate() |should| equal_to(6)
+
+    def test_it_should_evaluate_2_divided_by_2_equals_to_1(self):
+        expression = Expression("2 / 2")
+        expression.evaluate() |should| equal_to(1)
