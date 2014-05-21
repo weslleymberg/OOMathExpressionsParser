@@ -1,3 +1,5 @@
+import re
+
 class _Expression(object):
     """
     This is an abstract class for every class
@@ -72,12 +74,14 @@ class Expression(_Expression):
 
     def __init__(self, expression):
         self.expression = expression
+        self.operators = {'+': Sum, '-': Subtract, '*': Multiply, '/': Divide}
 
     def evaluate(self):
-        symbols = self.expression.split('+')
+        symbols = re.split('([+\-\*/])', self.expression)
+        print symbols
         left = self._convert_to_float(symbols[0])
-        right = self._convert_to_float(symbols[1])
-        operator = Sum(left, right)
+        right = self._convert_to_float(symbols[2])
+        operator = self.operators[symbols[1]](left, right)
         return operator.evaluate()
 
     def _convert_to_float(self, symbol):

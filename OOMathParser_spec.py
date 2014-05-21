@@ -102,3 +102,27 @@ class TestParse(unittest.TestCase):
     def test_it_should_evaluate_1_plus_1_equals_to_2(self):
         expression = Expression("1 + 1")
         expression.evaluate() |should| equal_to(2)
+
+    def test_it_should_evaluate_2_times_3_equals_to_6(self):
+        expression = Expression("2*3")
+        expression.evaluate() |should| equal_to(6)
+
+    def test_it_should_evaluate_5_times_5_equals_to_25(self):
+        expression = Expression("5*5")
+        expression.evaluate() |should| equal_to(25)
+
+    def test_it_should_evaluate_2_divided_by_2_equals_to_1(self):
+        expression = Expression("2 / 2")
+        expression.evaluate() |should| equal_to(1)
+
+    def test_it_should_evaluate_10_divided_by_2_equals_to_5(self):
+        expression = Expression("10 / 2")
+        expression.evaluate() |should| equal_to(5)
+
+    def test_it_should_evaluate_7_minus_4_equals_to_3(self):
+        expression = Expression("7-4")
+        expression.evaluate() |should| equal_to(3)
+
+    def test_it_should_evaluate_7_minus_4_equals_to_3(self):
+        expression = Expression("8-3")
+        expression.evaluate() |should| equal_to(5)
