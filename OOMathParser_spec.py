@@ -91,3 +91,14 @@ class TestDivide(unittest.TestCase):
 
     def test_it_should_divide_the_two_expressions(self):
         self.a_divide_expression.evaluate() |should| equal_to(2)
+
+
+class TestParse(unittest.TestCase):
+
+    def test_it_should_evaluate_3_plus_2_equals_to_5(self):
+        expression = Expression("3+2")
+        expression.evaluate() |should| equal_to(5)
+
+    def test_it_should_evaluate_1_plus_1_equals_to_2(self):
+        expression = Expression("1 + 1")
+        expression.evaluate() |should| equal_to(2)

@@ -66,3 +66,24 @@ class Divide(_CompoundExpression):
 
     def evaluate(self):
         return self.left_expression.evaluate() / self.right_expression.evaluate()
+
+
+class Expression(_Expression):
+
+    def __init__(self, expression):
+        self.expression = expression
+
+    def evaluate(self):
+        symbols = self.expression.split('+')
+        left = self._convert_to_float(symbols[0])
+        right = self._convert_to_float(symbols[1])
+        operator = Sum(left, right)
+        return operator.evaluate()
+
+    def _convert_to_float(self, symbol):
+        try:
+            number = float(symbol)
+        except ValueError:
+            raise
+        else:
+            return Literal(number)
