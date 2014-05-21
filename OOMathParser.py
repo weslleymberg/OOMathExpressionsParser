@@ -46,17 +46,11 @@ class _CompoundExpression(_Expression):
 
 class Sum(_CompoundExpression):
 
-    def __init__(self, left_expression, right_expression):
-        super(Sum, self).__init__(left_expression, right_expression)
-
     def evaluate(self):
         return self.left_expression.evaluate() + self.right_expression.evaluate()
 
 
 class Subtract(_CompoundExpression):
-
-    def __init__(self, left_expression, right_expression):
-        super(Subtract, self).__init__(left_expression, right_expression)
 
     def evaluate(self):
         return self.left_expression.evaluate() - self.right_expression.evaluate()
@@ -64,17 +58,11 @@ class Subtract(_CompoundExpression):
 
 class Multiply(_CompoundExpression):
 
-    def __init__(self, left_expression, right_expression):
-        super(Multiply, self).__init__(left_expression, right_expression)
-
     def evaluate(self):
         return self.left_expression.evaluate() * self.right_expression.evaluate()
 
 
 class Divide(_CompoundExpression):
-
-    def __init__(self, left_expression, right_expression):
-        super(Divide, self).__init__(left_expression, right_expression)
 
     def evaluate(self):
         return self.left_expression.evaluate() / self.right_expression.evaluate()
