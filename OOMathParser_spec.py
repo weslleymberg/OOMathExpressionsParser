@@ -93,7 +93,7 @@ class TestDivide(unittest.TestCase):
         self.a_divide_expression.evaluate() |should| equal_to(2)
 
 
-class TestParse(unittest.TestCase):
+class TestParseTwoNumbersOperations(unittest.TestCase):
 
     def test_it_should_evaluate_3_plus_2_equals_to_5(self):
         expression = Expression("3+2")
@@ -126,3 +126,30 @@ class TestParse(unittest.TestCase):
     def test_it_should_evaluate_7_minus_4_equals_to_3(self):
         expression = Expression("8-3")
         expression.evaluate() |should| equal_to(5)
+
+
+class ParseThreeNumbersOperations(unittest.TestCase):
+
+    def it_should_evaluate_1_plus_1_plus_1_equals_to_3(self):
+        expression = Expression("1 + 1 + 1")
+        expression.evaluate() |should| equal_to(3)
+
+    def it_should_evaluate_1_plus_2_plus_3_equals_to_6(self):
+        expression = Expression("1 + 2 + 3")
+        expression.evaluate() |should| equal_to(6)
+
+    def it_should_evaluate_2_minus_2_plus_1_equals_to_1(self):
+        expression = Expression("2 - 2 + 1")
+        expression.evaluate() |should| equal_to(1)
+
+    def it_should_evaluate_1_minus_2_plus_2_equals_to_1(self):
+        expression = Expression("1 - 2 + 2")
+        expression.evaluate() |should| equal_to(1)
+
+    def it_should_evaluate_3_times_2_divided_by_2_equals_to_1(self):
+        expression = Expression("3 * 2 / 2")
+        expression.evaluate() |should| equal_to(3)
+
+    def it_should_evaluate_8_divided_by_2_times_2_equals_to_1(self):
+        expression = Expression("8 / 2 * 2")
+        expression.evaluate() |should| equal_to(8)

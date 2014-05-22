@@ -76,12 +76,24 @@ class Expression(_Expression):
         self.expression = expression
         self.operators = {'+': Sum, '-': Subtract, '*': Multiply, '/': Divide}
 
-    def evaluate(self):
+    def evaluate(self, expression=None):
         symbols = re.split('([+\-\*/])', self.expression)
-        print symbols
-        left = self._convert_to_float(symbols[0])
-        right = self._convert_to_float(symbols[2])
-        operator = self.operators[symbols[1]](left, right)
+        right_literal = None
+        left_literal = None
+        operator = None
+        #print 'Symbols: ', symbols
+        for symbol in symbols:
+            if symbol in ('+', '-', '*', '/'):
+                operator = self.operators[symbol]
+                #print 'Operator: ', symbol
+            else:
+                if not left_literal:
+                    left_literal = self._convert_to_float(symbol)
+                else:
+                    right_literal = self._convert_to_float(symbol)
+                    operator = operator(left_literal, right_literal)
+                    #print left_literal.evaluate(), right_literal.evaluate(), operator.evaluate()
+                    left_literal = operator
         return operator.evaluate()
 
     def _convert_to_float(self, symbol):
